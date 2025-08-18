@@ -1,0 +1,14 @@
+---
+title: "bird_joins"
+format: html
+---
+
+# Data Wrangling with the birds dataset
+
+### Task 1 
+Read in the data sets and store the data frames as bird_observations, sites, surveys, and taxalist (it should be clear from the raw file names which is which). Create a subset of bird_observations called birds_subset that only contains observations for birds with species id “BHCO” and “RWBL”, and from sites with site ID “LI-W” and “NU-C”. 
+```{r}
+library()
+read_csv(here::here("data", "knb-lter-cap.256.9","52_pp52_birds_1.csv"))
+```
+
