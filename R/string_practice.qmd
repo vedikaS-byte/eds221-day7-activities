@@ -1,0 +1,23 @@
+---
+title: "string_practice"
+format: html
+---
+
+
+```{r}
+alarm_report <- data.frame(date = c("2020-03-14", "2020-03-15", "2020-04-10", "2020-04-18"), building = c("Engineering-North", "Bren Hall", "Engineering-South", "Engr-North"), alarm_message = 
+                             c("10:02am -- HVAC system down, facilities management alerted","8:24am -- Elevator North out of service", "12:41am -- Fire alarm, UCSB fire responded and cleared", "9:58pm -- Campus point emergency siren, UCPD responded" ))
+
+str(alarm_report)
+levels(factor(alarm_report$building))
+alarm_report %>% mutate(building = recode(building,"Engr-North" = "Engineering-North")) %>% 
+
+# separate the building column into two separate columns, building and wing, separated at the dash
+tidyr::separate(building, c("building", "wing"), "-") %>%
+# Only keep observations with the word “responded” in the alarm_message column
+filter(alarm_message == str_detect(pattern = "responded"))
+
+??stringr
+
+```
+
